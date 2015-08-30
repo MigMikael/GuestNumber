@@ -14,18 +14,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Guess Number"
+        android:text="Guess\nNumber"
         android:textColor="#ffffff"
-        android:textSize="30sp"
+        android:textSize="50sp"
         android:textStyle="bold" />
 
     <Button
         android:id="@+id/play_game_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:background="#ffffff"
-        android:text="play game" />
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="play game"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

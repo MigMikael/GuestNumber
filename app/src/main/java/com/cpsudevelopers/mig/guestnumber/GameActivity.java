@@ -18,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView mGuessNumberTextView;
     private TextView mResultTextView;
+    private TextView mRule;
     private EditText mInput;
     private Button mGuessButton;
 
@@ -31,6 +32,7 @@ public class GameActivity extends AppCompatActivity {
 
         mGuessNumberTextView = (TextView) findViewById(R.id.guess_number_text_view);
         mResultTextView = (TextView) findViewById(R.id.result_text_view);
+        mRule = (TextView) findViewById(R.id.rule_textView);
         mInput = (EditText) findViewById(R.id.input);
         mGuessButton = (Button) findViewById(R.id.guess_button);
 
@@ -44,9 +46,11 @@ public class GameActivity extends AppCompatActivity {
                 if (mInput.getText().length() == 0) {
                     Toast.makeText(GameActivity.this, "Please Input Number", Toast.LENGTH_LONG).show();
                     return;
-                } else if (mInput.getText().length() > 2) {
-                    Toast.makeText(GameActivity.this, "Please Input Number", Toast.LENGTH_LONG).show();
+                } else if (level == 0 && mInput.getText().length() > 1) {
+                    Toast.makeText(GameActivity.this, "Please Input One digit Number", Toast.LENGTH_LONG).show();
                     return;
+                } else if (level == 1 && mInput.getText().length() > 2) {
+                    Toast.makeText(GameActivity.this, "Please Input Two digit Number", Toast.LENGTH_LONG).show();
                 }
 
                 int guessNumber = Integer.valueOf(mInput.getText().toString());
@@ -63,8 +67,10 @@ public class GameActivity extends AppCompatActivity {
         mGame = new Game(level);
 
         if (level == 0) {
+            mRule.setText("Guess Number Between 0 - 9");
             mGuessNumberTextView.setText("_");
         } else {
+            mRule.setText("Guess Number Between 0 - 99");
             mGuessNumberTextView.setText("_ _");
         }
         mResultTextView.setText("");
